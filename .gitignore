@@ -1,0 +1,33 @@
+# OMC state (local)
+.omc/
+
+# Docs de travail (locaux)
+COMMANDS.md
+MEMORY.md
+CHANGES.md
+TODOS.md
+PLAN.md
+
+# Node
+node_modules/
+bridge/dist/
+bridge/data/
+*.log
+
+# Secrets
+.env
+*.env
+
+# Xcode
+app/*.xcodeproj
+DerivedData/
+build/
+*.xcresult
+
+# Release artifacts
+*.dmg
+*.zip
+release/
+
+# macOS
+.DS_Store

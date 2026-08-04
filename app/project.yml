@@ -1,0 +1,28 @@
+name: EufyGuard
+options:
+  bundleIdPrefix: fr.lauriat
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+targets:
+  EufyGuard:
+    type: application
+    platform: macOS
+    sources:
+      - Sources
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: EufyGuard
+        LSApplicationCategoryType: public.app-category.utilities
+        NSHumanReadableCopyright: "© Vincent Lauriat"
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: fr.lauriat.EufyGuard
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: "5.9"
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_IDENTITY: "-"
