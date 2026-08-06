@@ -1,7 +1,10 @@
 {
   "name": "eufy-bridge",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "description": "Local engine for EufyGuard: Eufy cameras connection, event detection, AI analysis",
   "main": "dist/index.js",
   "scripts": {

@@ -15,5 +15,8 @@ struct EufyGuardApp: App {
                 }
         }
         .windowStyle(.automatic)
+        .commands {
+            CheckForUpdatesCommand()
+        }
     }
 }
