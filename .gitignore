@@ -28,6 +28,7 @@ build/
 *.dmg
 *.zip
 release/
+.sparkle-tools/
 
 # macOS
 .DS_Store
