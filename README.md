@@ -13,6 +13,16 @@ view, timeline, chat, notifications) and a local Node/TypeScript engine — the
 app launches and supervises the bridge automatically; everything runs on your
 Mac, on `127.0.0.1` only.
 
+## Screenshots
+
+> Illustrative mockups — no real camera footage is ever published.
+
+![EufyGuard dashboard](docs/assets/screenshots/dashboard.svg)
+
+| Live view, AI detection & PTZ | Event timeline | AI chat |
+|---|---|---|
+| ![Live view](docs/assets/screenshots/live.svg) | ![Event timeline](docs/assets/screenshots/events.svg) | ![AI chat](docs/assets/screenshots/chat.svg) |
+
 ## Features
 
 | Feature | Status |
