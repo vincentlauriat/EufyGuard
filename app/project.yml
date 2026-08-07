@@ -20,6 +20,8 @@ targets:
       path: Sources/Info.plist
       properties:
         CFBundleDisplayName: EufyGuard
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSApplicationCategoryType: public.app-category.utilities
         NSHumanReadableCopyright: "© Vincent Lauriat"
         NSAppTransportSecurity:

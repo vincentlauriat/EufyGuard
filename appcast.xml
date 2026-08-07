@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>EufyGuard</title>
+    <link>https://raw.githubusercontent.com/vincentlauriat/EufyGuard/main/appcast.xml</link>
+    <description>EufyGuard release feed</description>
+    <language>en</language>
+    <item>
+      <title>v1.0.0</title>
+      <pubDate>Fri, 07 Aug 2026 07:29:52 +0200</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/vincentlauriat/EufyGuard/releases/tag/v1.0.0</sparkle:releaseNotesLink>
+      <enclosure
+        url="https://github.com/vincentlauriat/EufyGuard/releases/download/v1.0.0/EufyGuard-1.0.0.dmg"
+        type="application/octet-stream"
+        sparkle:edSignature="t9uacEyoYVmBkHB0J9S/utwQnSMNvNtazwKdco5iGJ/6Mis4D3OLFpTMibpvMyWLqXiV5K6F8YdoU/wr91qjCg==" length="1987004" />
+    </item>
+  </channel>
+</rss>
