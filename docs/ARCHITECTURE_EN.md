@@ -14,6 +14,8 @@ Rationale: the Eufy P2P protocol only has a mature open-source implementation
 in Node.js. Rather than reimplementing it in Swift, the native app embeds a
 local Node engine and keeps everything user-facing native.
 
+![EufyGuard app — dashboard (illustrative mockup)](assets/screenshots/dashboard.svg)
+
 ```
 ┌───────────────────────────────┐          ┌───────────────────────────────┐
 │ EufyGuard.app (SwiftUI)       │          │ Bridge (Node/TypeScript)      │

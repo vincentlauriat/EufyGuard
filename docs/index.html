@@ -51,6 +51,11 @@
   .step h3{font-size:16px;margin-bottom:6px}
   .step p{color:var(--sub);font-size:14px}
   .note{max-width:720px;margin:0 auto;color:var(--sub);font-size:13.5px;text-align:center}
+  .hero-shot{width:100%;max-width:880px;margin:44px auto 0;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .shot{margin:0}
+  .shot img{width:100%;display:block;border-radius:12px;border:1px solid var(--line)}
+  .shot figcaption{color:var(--sub);font-size:13px;text-align:center;margin-top:8px}
   footer{border-top:1px solid var(--line);padding:36px 0;color:var(--sub);font-size:14px;text-align:center}
   footer a{color:var(--sub)}
 </style>
@@ -84,6 +89,7 @@
       <span class="fr">macOS 14+ · Signée Developer ID &amp; notariée · Mises à jour Sparkle 2 · Licence MIT</span>
       <span class="zh">macOS 14+ · Developer ID 签名并经公证 · Sparkle 2 更新 · MIT 许可证</span>
     </p>
+    <img class="hero-shot" src="assets/screenshots/dashboard.svg" alt="EufyGuard dashboard (illustrative mockup)">
   </div>
 </header>
 
@@ -110,6 +116,31 @@
         <h3><span class="en">Private by design</span><span class="fr">Privé par conception</span><span class="zh">隐私优先</span></h3>
         <p><span class="en">A local Node bridge on 127.0.0.1 talks to Eufy; credentials and snapshots stay on your Mac. No third-party server, open source.</span><span class="fr">Un bridge Node local sur 127.0.0.1 dialogue avec Eufy ; identifiants et snapshots restent sur votre Mac. Aucun serveur tiers, open source.</span><span class="zh">本地 Node 桥接进程通过 127.0.0.1 与 Eufy 通信；凭据与快照保留在您的 Mac 上。无第三方服务器，开源。</span></p></div>
     </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2><span class="en">The app in pictures</span><span class="fr">L'app en images</span><span class="zh">应用一览</span></h2>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="assets/screenshots/live.svg" alt="Live view with AI detection and PTZ pad">
+        <figcaption><span class="en">Live view, AI detection &amp; PTZ pad</span><span class="fr">Vue directe, détection IA &amp; pad PTZ</span><span class="zh">实时直播、AI 侦测与 PTZ 方向盘</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/screenshots/events.svg" alt="Event timeline with AI analysis">
+        <figcaption><span class="en">Event timeline with AI analysis</span><span class="fr">Timeline d'événements avec analyse IA</span><span class="zh">带 AI 分析的事件时间线</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/screenshots/chat.svg" alt="AI chat grounded on the event log">
+        <figcaption><span class="en">AI chat grounded on your event log</span><span class="fr">Chat IA ancré sur vos événements</span><span class="zh">基于事件记录的 AI 对话</span></figcaption>
+      </figure>
+    </div>
+    <p class="note" style="margin-top:22px">
+      <span class="en">Illustrative previews — real camera footage never leaves your Mac.</span>
+      <span class="fr">Aperçus illustratifs — les vraies images de vos caméras ne quittent jamais votre Mac.</span>
+      <span class="zh">示意预览——摄像头的真实画面绝不会离开您的 Mac。</span>
+    </p>
   </div>
 </section>
 

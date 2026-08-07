@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" font-family="-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <clipPath id="win"><rect width="1200" height="760" rx="14"/></clipPath>
+    <linearGradient id="skyDay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9ec7de"/><stop offset="1" stop-color="#d8e6ee"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2dd4bf"/><stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <clipPath id="mini"><rect x="292" y="536" width="150" height="84" rx="8"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#win)">
+    <rect width="1200" height="760" fill="#0d1220"/>
+    <rect width="1200" height="40" fill="#151c2d"/>
+    <circle cx="24" cy="20" r="6" fill="#ff5f57"/><circle cx="44" cy="20" r="6" fill="#febc2e"/><circle cx="64" cy="20" r="6" fill="#28c840"/>
+    <text x="600" y="25" text-anchor="middle" font-size="13" fill="#8fa0b8">EufyGuard</text>
+
+    <!-- sidebar -->
+    <rect y="40" width="230" height="720" fill="#10162a"/>
+    <line x1="230" y1="40" x2="230" y2="760" stroke="#243248"/>
+    <text x="20" y="74" font-size="10" font-weight="700" letter-spacing="1.2" fill="#5b6b84">SURVEILLANCE</text>
+    <g fill="#7d8ea8"><rect x="20" y="92" width="6" height="6" rx="1.5"/><rect x="29" y="92" width="6" height="6" rx="1.5"/><rect x="20" y="101" width="6" height="6" rx="1.5"/><rect x="29" y="101" width="6" height="6" rx="1.5"/></g>
+    <text x="44" y="104" font-size="13" fill="#c3cfe2">Tableau de bord</text>
+    <circle cx="27" cy="133" r="7" fill="none" stroke="#7d8ea8" stroke-width="1.6"/>
+    <path d="M27 129 v4 l3 2" fill="none" stroke="#7d8ea8" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="44" y="138" font-size="13" fill="#c3cfe2">Événements</text>
+    <rect x="10" y="152" width="210" height="30" rx="7" fill="#1c2b3f"/>
+    <path d="M27 160 l2.2 4.8 4.8 2.2 -4.8 2.2 -2.2 4.8 -2.2 -4.8 -4.8 -2.2 4.8 -2.2 z" fill="#2dd4bf"/>
+    <text x="44" y="172" font-size="13" font-weight="600" fill="#2dd4bf">Agent IA</text>
+    <text x="20" y="214" font-size="10" font-weight="700" letter-spacing="1.2" fill="#5b6b84">CAMÉRAS (4)</text>
+    <g font-size="12.5" fill="#c3cfe2">
+      <circle cx="26" cy="232" r="3" fill="#28c840"/><text x="38" y="237">Entrée</text><text x="210" y="237" text-anchor="end" font-size="11" fill="#7d8ea8">84 %</text>
+      <circle cx="26" cy="260" r="3" fill="#28c840"/><text x="38" y="265">Jardin</text><text x="210" y="265" text-anchor="end" font-size="11" fill="#7d8ea8">76 %</text>
+      <circle cx="26" cy="288" r="3" fill="#28c840"/><text x="38" y="293">Garage</text><text x="210" y="293" text-anchor="end" font-size="11" fill="#7d8ea8">91 %</text>
+      <circle cx="26" cy="316" r="3" fill="#28c840"/><text x="38" y="321">Terrasse</text><text x="210" y="321" text-anchor="end" font-size="11" fill="#7d8ea8">68 %</text>
+    </g>
+    <line x1="12" y1="692" x2="218" y2="692" stroke="#243248"/>
+    <circle cx="26" cy="712" r="6.5" fill="none" stroke="#7d8ea8" stroke-width="1.6"/><circle cx="26" cy="712" r="2.2" fill="#7d8ea8"/>
+    <text x="40" y="716" font-size="12.5" fill="#c3cfe2">Réglages</text>
+    <circle cx="24" cy="740" r="3.5" fill="#28c840"/>
+    <text x="35" y="744" font-size="11" fill="#7d8ea8">Connecté · Bridge actif</text>
+
+    <!-- header -->
+    <text x="254" y="82" font-size="21" font-weight="700" fill="#e9eef8">Agent IA</text>
+    <rect x="1032" y="58" width="130" height="30" rx="8" fill="#141b2c" stroke="#243248"/>
+    <path d="M1050 68 l1.8 3.9 3.9 1.8 -3.9 1.8 -1.8 3.9 -1.8 -3.9 -3.9 -1.8 3.9 -1.8 z" fill="#2dd4bf"/>
+    <text x="1064" y="77" font-size="12" fill="#c3cfe2">Résumé 24 h</text>
+
+    <!-- user bubble 1 -->
+    <rect x="806" y="112" width="360" height="40" rx="14" fill="url(#acc)"/>
+    <text x="826" y="137" font-size="14" font-weight="600" fill="#071018">Que s'est-il passé aujourd'hui ?</text>
+
+    <!-- AI bubble 1 -->
+    <rect x="254" y="168" width="640" height="196" rx="14" fill="#141b2c" stroke="#243248"/>
+    <path d="M276 190 l2.2 4.8 4.8 2.2 -4.8 2.2 -2.2 4.8 -2.2 -4.8 -4.8 -2.2 4.8 -2.2 z" fill="#2dd4bf"/>
+    <text x="292" y="201" font-size="12" font-weight="700" fill="#2dd4bf">AGENT</text>
+    <g font-size="14" fill="#d6dff0">
+      <text x="276" y="228">Journée calme — 12 événements sur 4 caméras :</text>
+      <text x="276" y="256">•  14:32 — Un livreur a déposé un colis devant la porte (Entrée)</text>
+      <text x="276" y="282">•  13:05 — Une voiture grise s'est garée dans l'allée (Garage)</text>
+      <text x="276" y="308">•  11:47 — Un chat a traversé la pelouse (Jardin)</text>
+      <text x="276" y="340" fill="#9fe8b8">Aucune activité suspecte détectée.</text>
+    </g>
+
+    <!-- user bubble 2 -->
+    <rect x="746" y="388" width="420" height="40" rx="14" fill="url(#acc)"/>
+    <text x="766" y="413" font-size="14" font-weight="600" fill="#071018">Le colis est-il toujours devant la porte ?</text>
+
+    <!-- AI bubble 2 -->
+    <rect x="254" y="444" width="640" height="196" rx="14" fill="#141b2c" stroke="#243248"/>
+    <path d="M276 466 l2.2 4.8 4.8 2.2 -4.8 2.2 -2.2 4.8 -2.2 -4.8 -4.8 -2.2 4.8 -2.2 z" fill="#2dd4bf"/>
+    <text x="292" y="477" font-size="12" font-weight="700" fill="#2dd4bf">AGENT</text>
+    <text x="276" y="504" font-size="14" fill="#d6dff0">Oui — sur le dernier snapshot de l'Entrée (15:10), le colis est</text>
+    <text x="276" y="524" font-size="14" fill="#d6dff0">toujours visible devant la porte :</text>
+    <g clip-path="url(#mini)">
+      <rect x="292" y="536" width="150" height="34" fill="url(#skyDay)"/>
+      <rect x="292" y="570" width="150" height="50" fill="#a8adb4"/>
+      <rect x="382" y="542" width="60" height="78" fill="#cbb9a2"/><rect x="396" y="556" width="30" height="64" fill="#7a5940"/>
+      <rect x="352" y="596" width="22" height="17" fill="#b78a5c"/>
+      <rect x="298" y="600" width="70" height="15" rx="3" fill="#000000" opacity="0.5"/>
+      <text x="303" y="611" font-size="9.5" font-family="ui-monospace,Menlo,monospace" fill="#ffffff">15:10:42</text>
+    </g>
+    <rect x="292" y="536" width="150" height="84" rx="8" fill="none" stroke="#243248"/>
+
+    <!-- input bar -->
+    <rect x="254" y="676" width="912" height="48" rx="12" fill="#141b2c" stroke="#243248"/>
+    <text x="274" y="705" font-size="14" fill="#7d8ea8">Poser une question sur l'activité récente…</text>
+    <circle cx="1136" cy="700" r="17" fill="url(#acc)"/>
+    <path d="M1136 708 v-15 m-6 6 l6 -6 l6 6" fill="none" stroke="#071018" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <rect width="1199" height="759" x="0.5" y="0.5" rx="14" fill="none" stroke="#243248"/>
+</svg>
