@@ -1,188 +1,48 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" style="--accent:#2dd4bf;--on-accent:#141414;--accent-ink:#19786c">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EufyGuard — Your Eufy cameras, natively on your Mac</title>
 <meta name="description" content="Native macOS surveillance app for Eufy cameras — live H.264/H.265 streaming, PTZ, guard modes, event timeline and an optional Claude AI monitoring agent. Local, signed, notarized, auto-updating.">
+<meta name="theme-color" content="#eff1f2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EufyGuard — Your Eufy cameras, natively on your Mac">
+<meta property="og:description" content="Native macOS surveillance app for Eufy cameras — live H.264/H.265 streaming, PTZ, guard modes, event timeline and an optional Claude AI monitoring agent. Local, signed, notarized, auto-updating.">
+<meta property="og:url" content="https://vincentlauriat.github.io/EufyGuard/">
+
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon-256.png">
-<style>
-  :root{
-    --bg:#0a0e16;--bg2:#101624;--card:#141b2c;--line:#243248;
-    --txt:#e9eef8;--sub:#9fb0c8;--acc:#2dd4bf;--acc2:#38bdf8;--grad:linear-gradient(135deg,#2dd4bf,#38bdf8);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--txt);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
-  a{color:var(--acc)}
-  /* language switching */
-  .fr,.zh{display:none}
-  html[data-lang="fr"] .en,html[data-lang="fr"] .zh{display:none}
-  html[data-lang="fr"] .fr{display:inline}
-  html[data-lang="zh"] .en,html[data-lang="zh"] .fr{display:none}
-  html[data-lang="zh"] .zh{display:inline}
-  p .en,p .fr,p .zh,h1 .en,h1 .fr,h1 .zh,h2 .en,h2 .fr,h2 .zh,h3 .en,h3 .fr,h3 .zh{display:none}
-  html[data-lang="en"] .en{display:inline}
-  html[data-lang="fr"] .fr{display:inline}
-  html[data-lang="zh"] .zh{display:inline}
-  .langbar{position:fixed;top:14px;right:18px;z-index:10;display:flex;gap:4px;background:rgba(20,27,44,.85);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:4px}
-  .langbar button{background:none;border:none;color:var(--sub);font:13px/1 inherit;padding:6px 12px;border-radius:999px;cursor:pointer}
-  .langbar button.on{background:var(--acc);color:#071018;font-weight:600}
-  header{padding:88px 0 64px;text-align:center;background:radial-gradient(ellipse at 50% -20%,#123c3c 0%,var(--bg) 62%)}
-  .appicon{width:128px;height:128px;margin-bottom:20px;border-radius:28px}
-  h1{font-size:clamp(30px,5vw,46px);line-height:1.15;font-weight:700;letter-spacing:-.02em}
-  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .tagline{color:var(--sub);font-size:19px;max-width:680px;margin:18px auto 0}
-  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-  .btn{display:inline-block;padding:13px 26px;border-radius:12px;font-weight:600;text-decoration:none}
-  .btn-dl{background:var(--grad);color:#071018}
-  .btn-gh{border:1px solid var(--line);color:var(--txt)}
-  .req{color:var(--sub);font-size:13px;margin-top:14px}
-  section{padding:64px 0}
-  h2{font-size:28px;margin-bottom:28px;text-align:center}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .card .ico{font-size:26px;margin-bottom:10px}
-  .card h3{font-size:17px;margin-bottom:8px}
-  .card p{color:var(--sub);font-size:14.5px}
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:step}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;counter-increment:step}
-  .step::before{content:counter(step);display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;background:var(--grad);color:#071018;font-weight:700;border-radius:8px;margin-bottom:12px}
-  .step h3{font-size:16px;margin-bottom:6px}
-  .step p{color:var(--sub);font-size:14px}
-  .note{max-width:720px;margin:0 auto;color:var(--sub);font-size:13.5px;text-align:center}
-  .hero-shot{width:100%;max-width:880px;margin:44px auto 0;display:block;border-radius:14px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.45)}
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-  .shot{margin:0}
-  .shot img{width:100%;display:block;border-radius:12px;border:1px solid var(--line)}
-  .shot figcaption{color:var(--sub);font-size:13px;text-align:center;margin-top:8px}
-  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--sub);font-size:14px;text-align:center}
-  footer a{color:var(--sub)}
-</style>
+<link rel="preload" href="/assets/schibsted.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/monograph/v1/monograph.css">
+
 </head>
 <body>
-<div class="langbar" role="group" aria-label="Language">
-  <button data-l="en" class="on">EN</button><button data-l="fr">FR</button><button data-l="zh">中文</button>
+<a class="skip" href="#content"><span class="en">Skip to content</span><span class="fr">Aller au contenu</span><span class="zh">跳至內容</span></a>
+<header class="running"><div class="wrap">
+<a class="back" href="https://vincentlauriat.github.io/#w25"><svg class="arw l" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg><span class="en">Vincent Lauriat</span><span class="fr">Vincent Lauriat</span><span class="zh">Vincent Lauriat</span></a>
+<span class="here"><span class="num">25</span> · EufyGuard</span>
+<div class="langs" role="group" aria-label="Language / Langue / 語言"><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="fr" aria-pressed="false">FR</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
+<a class="gh" href="https://github.com/vincentlauriat/EufyGuard">GitHub</a>
+</div></header>
+<main>
+<section class="title"><div class="wrap g12">
+<h1 class="nm" style="--len:9"><span class="no" aria-label="Work no. 25">25</span><span>EufyGuard</span></h1>
+<p class="role"><span class="en">Camera watch</span><span class="fr">Veille caméras</span><span class="zh">攝影機監看</span></p>
+<div class="t-left">
+<p class="thesis"><span class="en">Your Eufy cameras, natively on your Mac. Local. Private. AI-assisted.</span><span class="fr">Vos caméras Eufy, en natif sur votre Mac. Local. Privé. Assisté par IA.</span><span class="zh">您的 Eufy 攝像頭，原生運行在 Mac 上。本地、私密、AI 輔助。</span></p>
+<p class='lede'><span class="en">EufyGuard talks to your Eufy stations directly — live H.264/H.265 streaming, PTZ control, guard modes, event timeline with snapshots, native notifications, and an optional Claude AI agent that watches, explains and summarizes what happens at home.</span><span class="fr">EufyGuard dialogue directement avec vos stations Eufy — direct H.264/H.265, pilotage PTZ, modes de garde, timeline d'événements avec snapshots, notifications natives, et un agent IA Claude optionnel qui observe, explique et résume ce qui se passe chez vous.</span><span class="zh">EufyGuard 直接與您的 Eufy 基站通信——H.264/H.265 實時直播、PTZ 雲台控制、佈防模式、帶快照的事件時間線、原生通知，以及可選的 Claude AI 智能體，為您觀察、解釋並總結家中發生的一切。</span></p>
+<div class="acts"><a class="btn" href="https://github.com/vincentlauriat/EufyGuard/releases/latest"><span class="en">Download for macOS</span><span class="fr">Télécharger pour macOS</span><span class="zh">下載 macOS 版</span></a><a class="lnk" href="https://github.com/vincentlauriat/EufyGuard">GitHub<svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></div>
+<dl class="facts"><div><dt><span class="en">Requires</span><span class="fr">Configuration</span><span class="zh">系統需求</span></dt><dd>macOS 14+</dd></div><div><dt><span class="en">Distribution</span><span class="fr">Distribution</span><span class="zh">發行</span></dt><dd><span class="en">Developer ID signed &amp; notarized</span><span class="fr">Signée Developer ID &amp; notariée</span><span class="zh">Developer ID 簽名並經公證</span></dd></div><div><dt><span class="en">Updates</span><span class="fr">Mises à jour</span><span class="zh">更新</span></dt><dd><span class="en">Sparkle 2 updates</span><span class="fr">Mises à jour Sparkle 2</span><span class="zh">Sparkle 2 更新</span></dd></div><div><dt><span class="en">Licence</span><span class="fr">Licence</span><span class="zh">授權</span></dt><dd><span class="en">MIT license</span><span class="fr">Licence MIT</span><span class="zh">MIT 許可證</span></dd></div></dl>
 </div>
-
-<header>
-  <div class="wrap">
-    <img class="appicon" src="assets/icon-256.png" alt="EufyGuard icon">
-    <h1>
-      <span class="en">Your Eufy cameras, natively on your Mac.<br><span class="grad">Local. Private. AI-assisted.</span></span>
-      <span class="fr">Vos caméras Eufy, en natif sur votre Mac.<br><span class="grad">Local. Privé. Assisté par IA.</span></span>
-      <span class="zh">您的 Eufy 摄像头，原生运行在 Mac 上。<br><span class="grad">本地、私密、AI 辅助。</span></span>
-    </h1>
-    <p class="tagline">
-      <span class="en">EufyGuard talks to your Eufy stations directly — live H.264/H.265 streaming, PTZ control, guard modes, event timeline with snapshots, native notifications, and an optional Claude AI agent that watches, explains and summarizes what happens at home.</span>
-      <span class="fr">EufyGuard dialogue directement avec vos stations Eufy — direct H.264/H.265, pilotage PTZ, modes de garde, timeline d'événements avec snapshots, notifications natives, et un agent IA Claude optionnel qui observe, explique et résume ce qui se passe chez vous.</span>
-      <span class="zh">EufyGuard 直接与您的 Eufy 基站通信——H.264/H.265 实时直播、PTZ 云台控制、布防模式、带快照的事件时间线、原生通知，以及可选的 Claude AI 智能体，为您观察、解释并总结家中发生的一切。</span>
-    </p>
-    <div class="cta-row">
-      <a class="btn btn-dl" href="https://github.com/vincentlauriat/EufyGuard/releases/latest">
-        <span class="en">Download for macOS</span><span class="fr">Télécharger pour macOS</span><span class="zh">下载 macOS 版</span>
-      </a>
-      <a class="btn btn-gh" href="https://github.com/vincentlauriat/EufyGuard">GitHub</a>
-    </div>
-    <p class="req">
-      <span class="en">macOS 14+ · Developer ID signed & notarized · Sparkle 2 updates · MIT license</span>
-      <span class="fr">macOS 14+ · Signée Developer ID &amp; notariée · Mises à jour Sparkle 2 · Licence MIT</span>
-      <span class="zh">macOS 14+ · Developer ID 签名并经公证 · Sparkle 2 更新 · MIT 许可证</span>
-    </p>
-    <img class="hero-shot" src="assets/screenshots/dashboard.svg" alt="EufyGuard dashboard (illustrative mockup)">
-  </div>
-</header>
-
-<section id="features">
-  <div class="wrap">
-    <h2><span class="en">A real surveillance station, not a web wrapper</span><span class="fr">Une vraie station de surveillance, pas un wrapper web</span><span class="zh">真正的监控工作站，而非网页套壳</span></h2>
-    <div class="cards">
-      <div class="card"><div class="ico">🎥</div>
-        <h3><span class="en">Native live streaming</span><span class="fr">Direct natif</span><span class="zh">原生实时直播</span></h3>
-        <p><span class="en">Raw H.264/H.265 from the station's P2P stream, decoded in hardware by VideoToolbox. No ffmpeg, no browser, no transcoding.</span><span class="fr">Flux H.264/H.265 brut issu du P2P de la station, décodé matériellement par VideoToolbox. Sans ffmpeg, sans navigateur, sans transcodage.</span><span class="zh">来自基站 P2P 的原始 H.264/H.265 码流，由 VideoToolbox 硬件解码。无 ffmpeg、无浏览器、无转码。</span></p></div>
-      <div class="card"><div class="ico">🕹️</div>
-        <h3><span class="en">PTZ control</span><span class="fr">Pilotage PTZ</span><span class="zh">PTZ 云台控制</span></h3>
-        <p><span class="en">Pan, tilt and 360° rotation on motorized cameras — on-screen pad or arrow keys, straight from the live view.</span><span class="fr">Panoramique, inclinaison et rotation 360° des caméras motorisées — pad à l'écran ou flèches clavier, depuis la vue directe.</span><span class="zh">电动摄像头的平移、俯仰与 360° 旋转——屏幕方向盘或方向键，直接在直播画面中操作。</span></p></div>
-      <div class="card"><div class="ico">🛡️</div>
-        <h3><span class="en">Guard modes</span><span class="fr">Modes de garde</span><span class="zh">布防模式</span></h3>
-        <p><span class="en">Home, away, scheduled or disarmed — per station, from the dashboard toolbar.</span><span class="fr">Domicile, absent, programmé ou désarmé — par station, depuis la barre du dashboard.</span><span class="zh">在家、外出、定时或撤防——按基站设置，就在仪表盘工具栏。</span></p></div>
-      <div class="card"><div class="ico">🔔</div>
-        <h3><span class="en">Events & notifications</span><span class="fr">Événements &amp; notifications</span><span class="zh">事件与通知</span></h3>
-        <p><span class="en">Motion, person, ring, pet, vehicle and sound detection land in a timeline with snapshots and trigger native macOS notifications.</span><span class="fr">Mouvement, personne, sonnette, animal, véhicule et son alimentent une timeline avec snapshots et déclenchent des notifications macOS natives.</span><span class="zh">移动、人形、门铃、宠物、车辆与声音侦测进入带快照的时间线，并触发原生 macOS 通知。</span></p></div>
-      <div class="card"><div class="ico">🤖</div>
-        <h3><span class="en">Claude AI agent (optional)</span><span class="fr">Agent IA Claude (optionnel)</span><span class="zh">Claude AI 智能体（可选）</span></h3>
-        <p><span class="en">With your own Anthropic API key: vision analysis of every event, a chat grounded on recent activity, and a 24-hour digest.</span><span class="fr">Avec votre propre clé API Anthropic : analyse vision de chaque événement, chat ancré sur l'activité récente, et résumé sur 24 h.</span><span class="zh">使用您自己的 Anthropic API 密钥：对每个事件进行视觉分析、基于近期活动的对话，以及 24 小时摘要。</span></p></div>
-      <div class="card"><div class="ico">🔐</div>
-        <h3><span class="en">Private by design</span><span class="fr">Privé par conception</span><span class="zh">隐私优先</span></h3>
-        <p><span class="en">A local Node bridge on 127.0.0.1 talks to Eufy; credentials and snapshots stay on your Mac. No third-party server, open source.</span><span class="fr">Un bridge Node local sur 127.0.0.1 dialogue avec Eufy ; identifiants et snapshots restent sur votre Mac. Aucun serveur tiers, open source.</span><span class="zh">本地 Node 桥接进程通过 127.0.0.1 与 Eufy 通信；凭据与快照保留在您的 Mac 上。无第三方服务器，开源。</span></p></div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="wrap">
-    <h2><span class="en">The app in pictures</span><span class="fr">L'app en images</span><span class="zh">应用一览</span></h2>
-    <div class="gallery">
-      <figure class="shot">
-        <img src="assets/screenshots/live.svg" alt="Live view with AI detection and PTZ pad">
-        <figcaption><span class="en">Live view, AI detection &amp; PTZ pad</span><span class="fr">Vue directe, détection IA &amp; pad PTZ</span><span class="zh">实时直播、AI 侦测与 PTZ 方向盘</span></figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/events.svg" alt="Event timeline with AI analysis">
-        <figcaption><span class="en">Event timeline with AI analysis</span><span class="fr">Timeline d'événements avec analyse IA</span><span class="zh">带 AI 分析的事件时间线</span></figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/screenshots/chat.svg" alt="AI chat grounded on the event log">
-        <figcaption><span class="en">AI chat grounded on your event log</span><span class="fr">Chat IA ancré sur vos événements</span><span class="zh">基于事件记录的 AI 对话</span></figcaption>
-      </figure>
-    </div>
-    <p class="note" style="margin-top:22px">
-      <span class="en">Illustrative previews — real camera footage never leaves your Mac.</span>
-      <span class="fr">Aperçus illustratifs — les vraies images de vos caméras ne quittent jamais votre Mac.</span>
-      <span class="zh">示意预览——摄像头的真实画面绝不会离开您的 Mac。</span>
-    </p>
-  </div>
-</section>
-
-<section id="install" style="background:var(--bg2)">
-  <div class="wrap">
-    <h2><span class="en">Up and running in minutes</span><span class="fr">Opérationnelle en quelques minutes</span><span class="zh">几分钟即可运行</span></h2>
-    <div class="steps">
-      <div class="step"><h3><span class="en">Download</span><span class="fr">Télécharger</span><span class="zh">下载</span></h3>
-        <p><span class="en">Grab the latest signed .dmg from GitHub Releases and drop EufyGuard into /Applications.</span><span class="fr">Récupérez le dernier .dmg signé depuis GitHub Releases et déposez EufyGuard dans /Applications.</span><span class="zh">从 GitHub Releases 获取最新签名的 .dmg，并将 EufyGuard 拖入 /Applications。</span></p></div>
-      <div class="step"><h3><span class="en">Install the bridge</span><span class="fr">Installer le bridge</span><span class="zh">安装桥接程序</span></h3>
-        <p><span class="en">Clone the repo, then npm install && npm run build in bridge/ (Node ≥ 20). The app launches and supervises it for you.</span><span class="fr">Clonez le repo, puis npm install &amp;&amp; npm run build dans bridge/ (Node ≥ 20). L'app le lance et le supervise pour vous.</span><span class="zh">克隆仓库，然后在 bridge/ 中执行 npm install && npm run build（Node ≥ 20）。应用会为您启动并监管它。</span></p></div>
-      <div class="step"><h3><span class="en">Sign in to Eufy</span><span class="fr">Connexion Eufy</span><span class="zh">登录 Eufy</span></h3>
-        <p><span class="en">Enter your Eufy account in Settings (captcha and 2FA supported). Optionally add an Anthropic API key to enable the AI agent.</span><span class="fr">Saisissez votre compte Eufy dans les Réglages (captcha et 2FA gérés). Ajoutez si vous voulez une clé API Anthropic pour activer l'agent IA.</span><span class="zh">在设置中输入您的 Eufy 账户（支持验证码与两步验证）。可选填入 Anthropic API 密钥以启用 AI 智能体。</span></p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <p class="note">
-      <span class="en">Unofficial project — not affiliated with Eufy or Anker. Built on the open-source eufy-security-client protocol implementation. Your cameras, your Mac, your data.</span>
-      <span class="fr">Projet non officiel — sans affiliation avec Eufy ni Anker. Construit sur l'implémentation open source du protocole eufy-security-client. Vos caméras, votre Mac, vos données.</span>
-      <span class="zh">非官方项目——与 Eufy 或 Anker 无关。基于开源的 eufy-security-client 协议实现。您的摄像头、您的 Mac、您的数据。</span>
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p>© 2026 <a href="https://lauriat.fr">Vincent Lauriat</a> ·
-      <a href="https://github.com/vincentlauriat/EufyGuard">GitHub</a> ·
-      <a href="https://github.com/vincentlauriat/EufyGuard/releases">Releases</a> ·
-      MIT</p>
-  </div>
-</footer>
-
-<script>
-  const html=document.documentElement,btns=document.querySelectorAll('.langbar button');
-  const saved=localStorage.getItem('eg-lang')||(navigator.language.startsWith('fr')?'fr':navigator.language.startsWith('zh')?'zh':'en');
-  setLang(saved);
-  btns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
-  function setLang(l){html.dataset.lang=l;localStorage.setItem('eg-lang',l);btns.forEach(b=>b.classList.toggle('on',b.dataset.l===l));}
-</script>
+<div class="t-right"><figure class="plate ink"><div class="pl"><img src="assets/screenshots/dashboard.svg" alt="EufyGuard dashboard (illustrative mockup)" width="1200" height="760" decoding="async"></div><figcaption><span class="fg"><span class="en">Fig.</span><span class="fr">Fig.</span><span class="zh">圖</span> 1</span><span class="en">Illustrative previews — real camera footage never leaves your Mac.</span><span class="fr">Aperçus illustratifs — les vraies images de vos caméras ne quittent jamais votre Mac.</span><span class="zh">示意預覽——攝像頭的真實畫面絕不會離開您的 Mac。</span></figcaption></figure></div>
+</div></section>
+<section class="opener" id="content"><div class="wrap"><div class="op-grid"><div class="numeral" aria-hidden="true">25</div><div class="op-text"><h2><span class="en">A real surveillance station, not a web wrapper</span><span class="fr">Une vraie station de surveillance, pas un wrapper web</span><span class="zh">真正的監控工作站，而非網頁套殼</span></h2></div></div></div></section>
+<section class="chapter"><div class="wrap"><ul class="specs"><li><h3><span class="en">Native live streaming</span><span class="fr">Direct natif</span><span class="zh">原生實時直播</span></h3><div><p><span class="en">Raw H.264/H.265 from the station's P2P stream, decoded in hardware by VideoToolbox. No ffmpeg, no browser, no transcoding.</span><span class="fr">Flux H.264/H.265 brut issu du P2P de la station, décodé matériellement par VideoToolbox. Sans ffmpeg, sans navigateur, sans transcodage.</span><span class="zh">來自基站 P2P 的原始 H.264/H.265 碼流，由 VideoToolbox 硬件解碼。無 ffmpeg、無瀏覽器、無轉碼。</span></p></div></li><li><h3><span class="en">PTZ control</span><span class="fr">Pilotage PTZ</span><span class="zh">PTZ 雲台控制</span></h3><div><p><span class="en">Pan, tilt and 360° rotation on motorized cameras — on-screen pad or arrow keys, straight from the live view.</span><span class="fr">Panoramique, inclinaison et rotation 360° des caméras motorisées — pad à l'écran ou flèches clavier, depuis la vue directe.</span><span class="zh">電動攝像頭的平移、俯仰與 360° 旋轉——屏幕方向盤或方向鍵，直接在直播畫面中操作。</span></p></div></li><li><h3><span class="en">Guard modes</span><span class="fr">Modes de garde</span><span class="zh">佈防模式</span></h3><div><p><span class="en">Home, away, scheduled or disarmed — per station, from the dashboard toolbar.</span><span class="fr">Domicile, absent, programmé ou désarmé — par station, depuis la barre du dashboard.</span><span class="zh">在家、外出、定時或撤防——按基站設置，就在儀表盤工具欄。</span></p></div></li><li><h3><span class="en">Events &amp; notifications</span><span class="fr">Événements &amp; notifications</span><span class="zh">事件與通知</span></h3><div><p><span class="en">Motion, person, ring, pet, vehicle and sound detection land in a timeline with snapshots and trigger native macOS notifications.</span><span class="fr">Mouvement, personne, sonnette, animal, véhicule et son alimentent une timeline avec snapshots et déclenchent des notifications macOS natives.</span><span class="zh">移動、人形、門鈴、寵物、車輛與聲音偵測進入帶快照的時間線，並觸發原生 macOS 通知。</span></p></div></li><li><h3><span class="en">Claude AI agent (optional)</span><span class="fr">Agent IA Claude (optionnel)</span><span class="zh">Claude AI 智能體（可選）</span></h3><div><p><span class="en">With your own Anthropic API key: vision analysis of every event, a chat grounded on recent activity, and a 24-hour digest.</span><span class="fr">Avec votre propre clé API Anthropic : analyse vision de chaque événement, chat ancré sur l'activité récente, et résumé sur 24 h.</span><span class="zh">使用您自己的 Anthropic API 密鑰：對每個事件進行視覺分析、基於近期活動的對話，以及 24 小時摘要。</span></p></div></li><li><h3><span class="en">Private by design</span><span class="fr">Privé par conception</span><span class="zh">隱私優先</span></h3><div><p><span class="en">A local Node bridge on 127.0.0.1 talks to Eufy; credentials and snapshots stay on your Mac. No third-party server, open source.</span><span class="fr">Un bridge Node local sur 127.0.0.1 dialogue avec Eufy ; identifiants et snapshots restent sur votre Mac. Aucun serveur tiers, open source.</span><span class="zh">本地 Node 橋接進程通過 127.0.0.1 與 Eufy 通信；憑據與快照保留在您的 Mac 上。無第三方服務器，開源。</span></p></div></li></ul></div></section>
+<section class="chapter" id="gallery"><div class="wrap g12"><div class="ch-head"><h2><span class="en">The app in pictures</span><span class="fr">L'app en images</span><span class="zh">應用一覽</span></h2><p><span class="en">Illustrative previews — real camera footage never leaves your Mac.</span><span class="fr">Aperçus illustratifs — les vraies images de vos caméras ne quittent jamais votre Mac.</span><span class="zh">示意預覽——攝像頭的真實畫面絕不會離開您的 Mac。</span></p></div><div class="ch-body"><div class="plates"><figure class="plate ink wide"><div class="pl"><img src="assets/screenshots/live.svg" alt="Live view with AI detection and PTZ pad" width="1200" height="760" loading="lazy" decoding="async"></div><figcaption><span class="fg"><span class="en">Fig.</span><span class="fr">Fig.</span><span class="zh">圖</span> 2</span><span class="en">Live view, AI detection &amp; PTZ pad</span><span class="fr">Vue directe, détection IA &amp; pad PTZ</span><span class="zh">實時直播、AI 偵測與 PTZ 方向盤</span></figcaption></figure><figure class="plate ink"><div class="pl"><img src="assets/screenshots/events.svg" alt="Event timeline with AI analysis" width="1200" height="760" loading="lazy" decoding="async"></div><figcaption><span class="fg"><span class="en">Fig.</span><span class="fr">Fig.</span><span class="zh">圖</span> 3</span><span class="en">Event timeline with AI analysis</span><span class="fr">Timeline d'événements avec analyse IA</span><span class="zh">帶 AI 分析的事件時間線</span></figcaption></figure><figure class="plate ink"><div class="pl"><img src="assets/screenshots/chat.svg" alt="AI chat grounded on the event log" width="1200" height="760" loading="lazy" decoding="async"></div><figcaption><span class="fg"><span class="en">Fig.</span><span class="fr">Fig.</span><span class="zh">圖</span> 4</span><span class="en">AI chat grounded on your event log</span><span class="fr">Chat IA ancré sur vos événements</span><span class="zh">基於事件記錄的 AI 對話</span></figcaption></figure></div></div></div></section><section class="chapter" id="install"><div class="wrap g12"><div class="ch-head"><h2><span class="en">Up and running in minutes</span><span class="fr">Opérationnelle en quelques minutes</span><span class="zh">幾分鐘即可運行</span></h2></div><div class="ch-body"><ol class="steps"><li><p><span class="en"><b>Download.</b> Grab the latest signed .dmg from GitHub Releases and drop EufyGuard into /Applications.</span><span class="fr"><b>Télécharger.</b> Récupérez le dernier .dmg signé depuis GitHub Releases et déposez EufyGuard dans /Applications.</span><span class="zh"><b>下載。</b>從 GitHub Releases 獲取最新簽名的 .dmg，並將 EufyGuard 拖入 /Applications。</span></p></li><li><p><span class="en"><b>Install the bridge.</b> Clone the repo, then <code>npm install &amp;&amp; npm run build</code> in bridge/ (Node ≥ 20). The app launches and supervises it for you.</span><span class="fr"><b>Installer le bridge.</b> Clonez le repo, puis <code>npm install &amp;&amp; npm run build</code> dans bridge/ (Node ≥ 20). L'app le lance et le supervise pour vous.</span><span class="zh"><b>安裝橋接程序。</b>克隆倉庫，然後在 bridge/ 中執行 <code>npm install &amp;&amp; npm run build</code>（Node ≥ 20）。應用會為您啟動並監管它。</span></p></li><li><p><span class="en"><b>Sign in to Eufy.</b> Enter your Eufy account in Settings (captcha and 2FA supported). Optionally add an Anthropic API key to enable the AI agent.</span><span class="fr"><b>Connexion Eufy.</b> Saisissez votre compte Eufy dans les Réglages (captcha et 2FA gérés). Ajoutez si vous voulez une clé API Anthropic pour activer l'agent IA.</span><span class="zh"><b>登錄 Eufy。</b>在設置中輸入您的 Eufy 賬戶（支持驗證碼與兩步驗證）。可選填入 Anthropic API 密鑰以啟用 AI 智能體。</span></p></li></ol></div></div></section>
+<section class="close"><div class="wrap g12"><h2><span class="en">Your cameras, your Mac, your data.</span><span class="fr">Vos caméras, votre Mac, vos données.</span><span class="zh">您的攝像頭、您的 Mac、您的數據。</span></h2><div class="c-r"><p><span class="en">Unofficial project — not affiliated with Eufy or Anker. Built on the open-source eufy-security-client protocol implementation.</span><span class="fr">Projet non officiel — sans affiliation avec Eufy ni Anker. Construit sur l'implémentation open source du protocole eufy-security-client.</span><span class="zh">非官方項目——與 Eufy 或 Anker 無關。基於開源的 eufy-security-client 協議實現。</span></p><div class="acts"><a class="btn" href="https://github.com/vincentlauriat/EufyGuard/releases/latest"><span class="en">Download for macOS</span><span class="fr">Télécharger pour macOS</span><span class="zh">下載 macOS 版</span></a><a class="lnk" href="https://github.com/vincentlauriat/EufyGuard/releases">Releases<svg class="arw" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></div></div></div></section>
+</main>
+<footer class="colophon"><div class="wrap g12"><div class="c1"><h2>EufyGuard</h2><p><span class="en">Work no.</span><span class="fr">Réalisation n°</span><span class="zh">作品編號</span> <span class="num">25</span> <span class="en">in the works of Vincent Lauriat</span><span class="fr">dans les réalisations de Vincent Lauriat</span><span class="zh">收錄於 Vincent Lauriat 作品集</span>.</p><p><a href="https://vincentlauriat.github.io/#w25"><span class="en">All works</span><span class="fr">Toutes les réalisations</span><span class="zh">全部作品</span></a></p></div><div class="c2"><h2><span class="en">Source</span><span class="fr">Source</span><span class="zh">原始碼</span></h2><p><a href="https://github.com/vincentlauriat/EufyGuard">github.com/vincentlauriat/EufyGuard</a></p><p><span class="en">MIT License</span><span class="fr">Licence MIT</span><span class="zh">MIT 授權</span> · © 2026 Vincent Lauriat</p><p><a href="https://lauriat.fr">lauriat.fr</a></p></div><div class="c3"><h2><span class="en">About this page</span><span class="fr">À propos de cette page</span><span class="zh">關於本頁</span></h2><p><span class="en">Set in Schibsted Grotesk, on the grid of the book it belongs to.</span><span class="fr">Composée en Schibsted Grotesk, sur la grille du livre auquel elle appartient.</span><span class="zh">以 Schibsted Grotesk 排版，沿用其所屬作品集的網格。</span></p></div></div></footer>
+<script src="/assets/monograph/v1/monograph.js"></script>
 </body>
 </html>
